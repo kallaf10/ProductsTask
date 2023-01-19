@@ -1,8 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center" >
-    <a class="nav-link text-dark btn btn-outline-primary form-control" style="margin-bottom:10px;" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
-    <a class="nav-link text-dark btn btn-outline-primary form-control" style="margin-top:10px;" asp-area="" asp-controller="Suppliers" asp-action="Index">Suppliers</a>
+<div style="display:flex; flex-direction:row; justify-content:center"  >
+    <div class="text-center" style="width:100%">
+        <a class="nav-link text-dark btn btn-outline-primary form-control" style="margin-bottom:10px;" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+        <a class="nav-link text-dark btn btn-outline-primary form-control" style="margin-top:10px;" asp-area="" asp-controller="Suppliers" asp-action="Index">Suppliers</a>
+    </div>
 </div>
