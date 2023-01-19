@@ -1,0 +1,58 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "AddProduct";
+}
+
+<h1 style="color:white; background-color:darkgray;border-radius:10px;text-align:center;margin-bottom:10px;padding:10px;">AddProduct</h1>
+<form asp-action="AddNewproduct" asp-controller="Products" method="post">
+    <div class="form-group">
+        <label asp-for="ProductName" class="form-label">Product Name</label>
+        <input asp-for="ProductName" class="form-control" placeholder="Product Name" />
+        <span asp-validation-for="ProductName" style="color:red;"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="QuantityPerUnit" class="form-label">Quantity Per Unit</label>
+        <select asp-for="QuantityPerUnit" class="form-control" placeholder="Author Name" >  
+            <option value="Kilo">Kilo</option>
+            <option value="box">box</option>
+            <option value="can">can</option>
+            <option value="liter">liter</option>
+            <option value="bottle">bottle</option>
+        </select>        
+        <span asp-validation-for="QuantityPerUnit" style="color:red"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SuplierId" class="form-label">Suplier</label>
+        <select asp-for="SuplierId" class="form-control"  placeholder="Copies" >
+            @foreach (var item in ViewBag.Suppliers)
+            {
+                <option asp-for="Suplier"  value="@item.SupplierId">@item.SupplierName</option>
+            }
+        </select>
+        <span>If You didn't find the Supplier in this list <a href="/Suppliers/Addsupplier/">Click here </a>to add new one</span>
+        <span asp-validation-for="SuplierId" style="color:red;"></span>
+        
+    </div>
+    <div class="form-group">
+        <label asp-for="RecorderLevel" class="form-label">RecorderLevel</label>
+        <input asp-for="RecorderLevel" min="1" class="form-control" type="number" placeholder="Recorder Level" />
+        <span asp-validation-for="RecorderLevel" style="color:red;"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UnitPrice" class="form-label">Unit Price</label>
+        <input asp-for="UnitPrice" min="1" class="form-control" step="any" type="number" placeholder="Unit Price" />
+        <span asp-validation-for="UnitPrice" style="color:red;"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UnitInStock" class="form-label">Unit In Stock</label>
+        <input asp-for="UnitInStock" min="1" class="form-control" type="number" placeholder="Unit In Stock" />
+        <span asp-validation-for="UnitInStock" style="color:red;"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UnitInOrder" class="form-label">Unit In Order</label>
+        <input asp-for="UnitInOrder" min="0" class="form-control" type="number" placeholder="Unit In Order" />
+        <span asp-validation-for="UnitInOrder" style="color:red;"></span>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-outline-success form-control" style="margin-top:20px;" />
+</form>

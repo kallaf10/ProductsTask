@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color:white; background-color:darkgray;border-radius:10px;text-align:center;margin-bottom:10px;padding:10px;">Products</h1>
+<a href="/Products/AddProduct" class="btn btn-success form-control" style="margin-right:10px; margin-bottom:10px;">Add New Product</a>
+
+@model List<Product>
+<table class="table table-bordered table-dark" style="text-align:center;">
+    <thead>
+        <tr>
+            <th  scope="col">Product ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity Per Unit</th>
+            <th scope="col">Recorder Level</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Unit In Stock</th>
+            <th scope="col">UnitInOrder</th>
+            <th class="col-2" scope="col">Supplier</th>
+            <th class="col-2" scope="col">Operations</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.QuantityPerUnit</td>
+                <td>@item.RecorderLevel</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.UnitInStock</td>
+                <td>@item.UnitInOrder</td>
+                <td>@item.Supplier.SupplierName</td>
+                <td>
+                    <a href="/Products/EditProduct/@item.ProductId" class="btn btn-outline-primary" style="margin-right:10px;">Edit</a>
+                    <a href="/Products/DeleteProduct/@item.ProductId" class="btn btn-outline-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    </table>
+
+

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color:white; background-color:darkgray;border-radius:10px;text-align:center;margin-bottom:10px;padding:10px;">Suppliers</h1>
+<a href="/Suppliers/AddSupplier" class="btn btn-success form-control" style="margin-right:10px; margin-bottom:10px;">Add New Supplier</a>
+
+@model List<Supplier>
+<table class="table table-bordered table-dark" style="text-align:center;">
+    <thead>
+        <tr>
+            <th  scope="col">Supplier Id</th>
+            <th scope="col">Supplier Name</th>
+            <th scope="col">Number of products</th>
+            <th scope="col">Operations</th>
+          
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SupplierId</td>
+                <td>@item.SupplierName</td>
+            
+                <td> @item.Products.Count()</td>
+                <td>
+                    <a href="/Suppliers/EditSupplier/@item.SupplierId" class="btn btn-outline-primary" style="margin-right:10px;">Edit</a>
+                    <a href="/Suppliers/AllProductsOfSupplier/@item.SupplierId" class="btn btn-outline-success">All products of supplier</a>
+                    <a href="/Suppliers/DeleteSupplier/@item.SupplierId" class="btn btn-outline-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    </table>
+@if (TempData["Error Message"]!=null)
+{
+    <script>
+        window.onload = function () {
+            alert("@TempData["Error Message"]")
+        }
+
+    </script>
+}

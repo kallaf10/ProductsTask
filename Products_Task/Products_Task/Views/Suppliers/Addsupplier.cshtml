@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Addsupplier";
+}
+
+@model Supplier
+<h1 style="color:white; background-color:darkgray;border-radius:10px;text-align:center;margin-bottom:10px;padding:10px;">Add Supplier</h1>
+<form asp-action="AddNewpSupplier" asp-controller="Suppliers" method="post">
+    <div class="form-group">
+        <label asp-for="SupplierName" class="form-label">Supplier Name</label>
+        <input asp-for="SupplierName" class="form-control" placeholder="Supplier Name" />
+        <span asp-validation-for="SupplierName" style="color:red;"></span>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-outline-success form-control" style="margin-top:20px;" />
+
+ </form>

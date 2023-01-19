@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "AllProductsOfSupplier";
+}
+@model List<Product>
+<h1 style="color:white; background-color:darkgray;border-radius:10px;text-align:center;margin-bottom:10px;padding:10px;">
+    All Products Of Supplier: @ViewBag.SupplierName
+</h1>
+<table class="table table-bordered table-dark" style="text-align:center;">
+    <thead>
+        <tr>
+            <th  scope="col">Product ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity Per Unit</th>
+            <th scope="col">Recorder Level</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Unit In Stock</th>
+            <th scope="col">UnitInOrder</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.QuantityPerUnit</td>
+                <td>@item.RecorderLevel</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.UnitInStock</td>
+                <td>@item.UnitInOrder</td>
+
+            </tr>
+        }
+    </tbody>
+    </table>
